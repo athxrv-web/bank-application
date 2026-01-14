@@ -11,11 +11,13 @@ def deposit(amount):
         print("cannot deposit")
 
 def withdraw(amount):
-    global check_balance
+    global balance
     if amount < 0:
         print("can not withdraw")
+        
     elif amount > balance:
         print("can not withdraw")
+        
     else:
         balance -= amount
 
@@ -53,9 +55,15 @@ while True :
         deposit(amt)
         print(f"amount deposited {amt}")
     elif choice == 3 :
-        amt=float(input("enter amount to withdraw"))
-        print(f"amount withdrawn{amt}")
-    elif choice ==4:
+        amt=float(input("enter amount to deposit"))
+        if amt >=0:
+           print("can not withdraw")
+        elif balance<amt:
+            print("insufficient balance")
+        else:
+            
+            print(f"amount withdrawn{amt}")
+    elif choice == 4:
         check_kyc()
     elif choice == 5 :
         kyc_docs={}
@@ -70,8 +78,8 @@ while True :
     else:
         print("ivalid choice!!! re try")
          
-print ("thank you for banking with uss")
 
+print("Thank you for banking with uss")
 
 
 
